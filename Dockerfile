@@ -1,5 +1,5 @@
 FROM g++
 WORKDIR /app/
-COPY ./
+COPY ./* ./
 RUN g++ main.cpp -o program
 RUN chmod +x program
