@@ -1,6 +1,5 @@
 FROM codenvy/cpp_gcc
-RUN  mkdir /
-WORKDIR /
-COPY ./* ./
+WORKDIR /app/
+COPY ./* ./app/
 RUN g++ main.cpp -o program
 RUN chmod +x program
