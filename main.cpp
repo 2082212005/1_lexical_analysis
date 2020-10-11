@@ -91,7 +91,7 @@ int main(int argc,char* argv[])
         }
         else if(s[i]==':'&&s[i+1]!='=')
         {
-            printf("%s\n",mp[":"].c_str());
+            printf("π “‚¥Ì%s\n",mp[":"].c_str());
             i++;
         }
         else if(s[i]==':'&&s[i+1]=='=')
