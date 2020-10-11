@@ -90,7 +90,10 @@ int main(int argc,char* argv[])
                     ;
                 str=str.substr(j);
             }
-            printf("%s(%s)\n",mp["INT"].c_str(),str.c_str());
+            if(str!="") 
+            	printf("%s(%s)\n",mp["INT"].c_str(),str.c_str());
+            else
+            	printf("%s(0)\n",mp["INT"].c_str());
             str="";
         }
         else if(s[i]==':'&&s[i+1]!='=')
