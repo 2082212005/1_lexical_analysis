@@ -49,6 +49,7 @@ bool isDigit(char c)
 int main()
 {
     init();
+	FILE *fp = fopen("out.txt", "w");
 	fstream fs("in.txt");
 	stringstream ss;
 	ss << fs.rdbuf();
@@ -65,9 +66,9 @@ int main()
             while(isLetter(s[i])||isDigit(s[i]))
                 str+=s[i++];
             if(mp.find(str)!=mp.end())
-                printf("%s\n",mp[str].c_str());
+                fprintf(fp,"%s\n",mp[str].c_str());
             else
-                printf("%s(%s)\n",mp["IDENT"].c_str(),str.c_str());
+                fprintf(fp,"%s(%s)\n",mp["IDENT"].c_str(),str.c_str());
             str="";
         }
         else if(isDigit(s[i]))
@@ -82,50 +83,51 @@ int main()
                     ;
                 str=str.substr(j);
             }
-            printf("%s(%s)\n",mp["INT"].c_str(),str.c_str());
+            fprintf(fp,"%s(%s)\n",mp["INT"].c_str(),str.c_str());
             str="";
         }
         else if(s[i]==':'&&s[i+1]!='=')
         {
-            printf("%s\n",mp[":"].c_str());
+            fprintf(fp,"%s\n",mp[":"].c_str());
             i++;
         }
         else if(s[i]==':'&&s[i+1]=='=')
         {
-            printf("%s\n",mp[":="].c_str());
+            fprintf(fp,"%s\n",mp[":="].c_str());
             i+=2;
         }
         else if(s[i]=='+')
         {
-            printf("%s\n",mp["+"].c_str());
+            fprintf(fp,"%s\n",mp["+"].c_str());
             i++;
         }
         else if(s[i]=='*')
         {
-            printf("%s\n",mp["*"].c_str());
+            fprintf(fp,"%s\n",mp["*"].c_str());
             i++;
         }
         else if(s[i]==',')
         {
-            printf("%s\n",mp[","].c_str());
+            fprintf(fp,"%s\n",mp[","].c_str());
             i++;
         }
         else if(s[i]=='(')
         {
-            printf("%s\n",mp["("].c_str());
+            fprintf(fp,"%s\n",mp["("].c_str());
             i++;
         }
         else if(s[i]==')')
         {
-            printf("%s\n",mp[")"].c_str());
+            fprintf(fp,"%s\n",mp[")"].c_str());
             i++;
         }
         else
         {
-            printf("%s\n",mp["UNKNOWN"].c_str());
+            fprintf(fp,"%s\n",mp["UNKNOWN"].c_str());
             break;
         }
     }
+    fclose(fp);
     return 0;
 }
 
