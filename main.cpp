@@ -77,7 +77,7 @@ int main(int argc,char* argv[])
         else if(isDigit(s[i]))
         {
             str+=s[i++];
-            while(isDigit(s[i]))
+            while(isDigit(s[i])) 
                 str+=s[i++];
             int j=0;
             if(str!="0")
