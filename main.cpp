@@ -4,6 +4,7 @@
 #include <string>
 #include <map>
 #include <cmath>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -51,18 +52,21 @@ int main(int argc,char* argv[])
     init();
 	fstream file1;
 	file1.open(argv[1]);
-	string s="",t;
+	string s="";
+	file1>>noskipws; 
+	char ch;
 	while(!file1.eof())
-    {
-        file1 >> t;
-        s+=" ";
-        s+=t;
+    { 
+        file1 >> ch; 
+        s+=ch;
     }
 	string str="";
 	for(int i=0;i<s.length();)
     {
         while(s[i]==' '||s[i]=='\n'||s[i]=='\t'||s[i]=='\r')
             i++;
+        if(i>=s.length())
+        	break;
         if(isLetter(s[i]))
         {
             str+=s[i++];
@@ -124,7 +128,7 @@ int main(int argc,char* argv[])
             printf("%s\n",mp[")"].c_str());
             i++;
         }
-        else
+		else
         {
             printf("%s\n",mp["UNKNOWN"].c_str());
             break;
