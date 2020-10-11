@@ -51,10 +51,8 @@ int main(int argc,char* argv[])
     init();
 	fstream file1;
 	file1.open(argv[1]);
-	stringstream ss;
-	ss << file1;
 	string s;
-	s=ss.str();
+	file1 >> s;
 	string str="";
 	for(int i=0;i<s.length();)
     {
