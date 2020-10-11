@@ -69,9 +69,9 @@ int main(int argc,char* argv[])
             while(isLetter(s[i])||isDigit(s[i]))
                 str+=s[i++];
             if(mp.find(str)!=mp.end())
-                printf("%s\r\n",mp[str].c_str());
+                printf("%s\n",mp[str].c_str());
             else
-                printf("%s(%s)\r\n",mp["IDENT"].c_str(),str.c_str());
+                printf("%s(%s)\n",mp["IDENT"].c_str(),str.c_str());
             str="";
         }
         else if(isDigit(s[i]))
@@ -86,47 +86,47 @@ int main(int argc,char* argv[])
                     ;
                 str=str.substr(j);
             }
-            printf("%s(%s)\r\n",mp["INT"].c_str(),str.c_str());
+            printf("%s(%s)\n",mp["INT"].c_str(),str.c_str());
             str="";
         }
         else if(s[i]==':'&&s[i+1]!='=')
         {
-            printf("%s\r\n",mp[":"].c_str());
+            printf("%s\n",mp[":"].c_str());
             i++;
         }
         else if(s[i]==':'&&s[i+1]=='=')
         {
-            printf("%s\r\n",mp[":="].c_str());
+            printf("%s\n",mp[":="].c_str());
             i+=2;
         }
         else if(s[i]=='+')
         {
-            printf("%s\r\n",mp["+"].c_str());
+            printf("%s\n",mp["+"].c_str());
             i++;
         }
         else if(s[i]=='*')
         {
-            printf("%s\r\n",mp["*"].c_str());
+            printf("%s\n",mp["*"].c_str());
             i++;
         }
         else if(s[i]==',')
         {
-            printf("%s\r\n",mp[","].c_str());
+            printf("%s\n",mp[","].c_str());
             i++;
         }
         else if(s[i]=='(')
         {
-            printf("%s\r\n",mp["("].c_str());
+            printf("%s\n",mp["("].c_str());
             i++;
         }
         else if(s[i]==')')
         {
-            printf("%s\r\n",mp[")"].c_str());
+            printf("%s\n",mp[")"].c_str());
             i++;
         }
         else
         {
-            printf("%s\r\n",mp["UNKNOWN"].c_str());
+            printf("%s\n",mp["UNKNOWN"].c_str());
             break;
         }
     }
