@@ -46,12 +46,13 @@ bool isDigit(char c)
         return false;
 }
 
-int main()
+int main(int argc,char* argv[])
 {
     init();
-	fstream fs("in.txt");
+	fstream file1;
+	file1.open(argv[1]);
 	stringstream ss;
-	ss << fs.rdbuf();
+	ss << file1;
 	string s;
 	s=ss.str();
 	string str="";
@@ -126,6 +127,7 @@ int main()
             break;
         }
     }
+    file1.close();
     return 0;
 }
 
